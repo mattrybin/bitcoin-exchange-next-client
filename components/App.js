@@ -30,18 +30,16 @@ export default ({ children }) => (
         font-weight: 300;
         font-style: normal;
       }
+
       html {
         color: #222;
-        font-weight: 100;
-        font-size: 18px; /* ~16px; */
+        font-weight: 400;
+        font-size: 18px;
         font-family: 'proxima-nova-soft';
         line-height: 1.375; /* ~22px */
         -webkit-font-smoothing: antialiased;
         font-kerning: normal;
         text-rendering: optimizeLegibility;
-      }
-
-      html {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
@@ -55,10 +53,6 @@ export default ({ children }) => (
 
       body {
         margin: 0;
-      }
-
-      a {
-        color: #0074c2;
       }
     `}</style>
   </main>

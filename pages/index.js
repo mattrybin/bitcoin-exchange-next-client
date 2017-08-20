@@ -1,22 +1,20 @@
-import Head from 'next/head'
+import cookie from 'cookie'
 import { withApollo, compose } from 'react-apollo'
 
 import App from '../components/App'
+import Head from '../components/head'
 import Header from '../components/Header'
-import withData from '../lib/with-data'
 import TransactionList from '../components/TransactionList'
+import redirect from '../lib/redirect'
+import checkLoggedIn from '../lib/check-logged-in'
+import withData from '../lib/with-data'
 
 class Index extends React.Component {
   render () {
     return (
       <App>
-        <Head>
-          <title>This page has a title 🤔</title>
-          <meta charSet='utf-8' />
-          <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-        </Head>
+        <Head title="Index" />
         <Header />
-        <TransactionList />
       </App>
     )
   }

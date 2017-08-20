@@ -95,28 +95,27 @@ export default ({ pathname }) => (
         font-size: 0;
       }
 
-      .header-extra a {
+      .buy-bitcoin,
+      .sell-bitcoin {
         font-size: ${s.m9};
-        text-align: center;
-        font-weight: 600;
         display: inline-block;
         width: 50%;
-        text-decoration: none;
-        color: white;
+        text-align: center;
         padding: 8px 0;
-        border-right: 1px solid ${c.darkBorder};
         border-top: ${m.containerBorderSize} solid ${c.darkFirst}; /* aliment fix */
         border-bottom: ${m.containerBorderSize} solid #111;
-        letter-spacing: ${l.spacingLarge};
+        border-right: 1px solid ${c.darkBorder};
       }
 
-      .header-extra a:hover {
-        border-bottom: ${m.containerBorderSize} solid #FABB3D;
-        color: #FABB3D;
-      }
-
-      .header-extra a:last-child {
+      .header-extra:last-child {
         border-right: 0;
+      }
+
+      .header-extra span {
+        font-weight: 600;
+        text-decoration: none;
+        color: white;
+        letter-spacing: ${l.spacingLarge};
       }
     `}</style>
   </header>

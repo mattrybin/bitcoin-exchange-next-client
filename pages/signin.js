@@ -1,9 +1,12 @@
 import React from 'react'
+import Head from 'next/head'
 import { graphql, withApollo, compose } from 'react-apollo'
 import cookie from 'cookie'
 import Link from 'next/link'
 import gql from 'graphql-tag'
 
+import App from '../components/App'
+import Header from '../components/Header'
 import withData from '../lib/with-data'
 import redirect from '../lib/redirect'
 import checkLoggedIn from '../lib/check-logged-in'
@@ -11,11 +14,11 @@ import checkLoggedIn from '../lib/check-logged-in'
 class Signin extends React.Component {
   static async getInitialProps (context, apolloClient) {
     const { loggedInUser } = await checkLoggedIn(context, apolloClient)
-
+    console.log(loggedInUser.user)
     if (loggedInUser.user) {
       // Already signed in? No need to continue.
       // Throw them back to the main page
-      redirect(context, '/')
+      redirect(context, '/transactions')
     }
 
     return {}
@@ -23,7 +26,13 @@ class Signin extends React.Component {
 
   render () {
     return (
-      <div>
+      <App>
+        <Header />
+        <Head>
+          <title>Sign In </title>
+          <meta charSet='utf-8' />
+          <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        </Head>
         {/* this.props.signin is the mutation function provided by apollo below */}
         <form onSubmit={this.props.signin}>
           <input type='email' placeholder='Email' name='email' /><br />
@@ -32,7 +41,7 @@ class Signin extends React.Component {
         </form>
         <hr />
         New? <Link prefetch href='/create-account'><a>Create account</a></Link>
-      </div>
+      </App>
     )
   }
 };

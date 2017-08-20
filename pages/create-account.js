@@ -4,6 +4,8 @@ import cookie from 'cookie'
 import Link from 'next/link'
 import gql from 'graphql-tag'
 
+import App from '../components/App'
+import Header from '../components/Header'
 import withData from '../lib/with-data'
 import redirect from '../lib/redirect'
 import checkLoggedIn from '../lib/check-logged-in'
@@ -23,7 +25,8 @@ class CreateAccount extends React.Component {
 
   render () {
     return (
-      <div>
+      <App>
+        <Header />
         {/* this.props.create is the mutation function provided by apollo below */}
         <form onSubmit={this.props.create}>
           <input type='email' placeholder='Email' name='email' /><br />
@@ -32,7 +35,7 @@ class CreateAccount extends React.Component {
         </form>
         <hr />
         Already have an account? <Link prefetch href='/signin'><a>Sign in</a></Link>
-      </div>
+      </App>
     )
   }
 };
