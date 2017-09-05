@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="24px" viewBox="0 0 32 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>mobile-icon-news</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="sketch-page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mobile-icon-news" transform="translate(0.000000, -4.000000)">
+            <rect id="Rectangle-44" x="0" y="0" width="32" height="32"></rect>
+            <path d="M28,23 C28,23.553 27.553,24 27,24 L5,24 C4.448,24 4,23.553 4,23 L4,12.275 L14.994,19.722 C15.305,19.907 15.652,20 16,20 C16.348,20 16.695,19.907 17.006,19.722 L28,12.275 L28,23 Z M27.236,8 L16,15.663 L4.764,8 L27.236,8 Z M30,4 L2,4 C0.896,4 0,4.896 0,6 L0,9.565 L0,26 C0,27.104 0.896,28 2,28 L30,28 C31.104,28 32,27.104 32,26 L32,9.565 L32,6 C32,4.896 31.104,4 30,4 L30,4 Z" fill="#FABB3D"></path>
+        </g>
+    </g>
+</svg>

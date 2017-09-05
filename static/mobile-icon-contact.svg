@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="28px" viewBox="0 0 32 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>mobile-icon-contact</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="sketch-page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mobile-icon-contact" transform="translate(0.000000, -2.000000)" fill="#FABB3D">
+            <path d="M23,2 C20.171,2 17.649,3.732 16,6 C14.35,3.732 11.829,2 9,2 C4.029,2 0,6.477 0,12 C0,23.437 16,30 16,30 C16,30 32,23.437 32,12 C32,6.477 27.971,2 23,2 M23,6 C25.757,6 28,8.691 28,12 C28,18.309 20.363,23.426 16,25.601 C11.632,23.423 4,18.307 4,12 C4,8.691 6.243,6 9,6 C10.286,6 11.693,6.88 12.765,8.353 L14.383,10.125 C15.181,11.223 16.819,11.223 17.617,10.125 L19.234,8.353 C20.307,6.88 21.714,6 23,6" id="Page-1"></path>
+        </g>
+    </g>
+</svg>

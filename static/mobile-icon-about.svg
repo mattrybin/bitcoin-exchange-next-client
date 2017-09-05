@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="32px" viewBox="0 0 28 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>mobile-icon-about</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="28 16.00025 28 32 0 32 0 16.00025 0 0.0005 28 0.0005"></polygon>
+    </defs>
+    <g id="sketch-page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mobile-icon-about" transform="translate(-2.000000, 0.000000)">
+            <g id="Group-3" transform="translate(2.000000, 0.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <path d="M24,19.0625 C24,19.6155 23.553,20.0625 23,20.0625 L9,20.0625 C8.448,20.0625 8,19.6155 8,19.0625 L8,4.9995 C8,4.4475 8.448,3.9995 9,3.9995 L23,3.9995 C23.553,3.9995 24,4.4475 24,4.9995 L24,19.0625 Z M24,26.9995 C24,27.5525 23.553,28.0005 23,28.0005 L8,28.0005 L5.98,28.0005 C4.887,28.0005 4,27.1135 4,26.0195 L4,25.9805 C4,24.8865 4.887,23.9995 5.98,23.9995 L8,23.9995 L23,23.9995 C23.553,23.9995 24,24.4475 24,24.9995 L24,26.9995 Z M26,0.0005 L24,0.0005 L8,0.0005 L4,0.0005 C1.791,0.0005 0,1.7915 0,3.9995 L0,28.0005 C0,30.2085 1.791,32.0005 4,32.0005 L8,32.0005 L26,32.0005 C27.104,32.0005 28,31.1045 28,30.0005 L28,29.0005 L28,28.0005 L28,23.9995 L28,20.0625 L28,3.9995 L28,2.0005 C28,0.8955 27.104,0.0005 26,0.0005 L26,0.0005 Z" id="Fill-1" fill="#FABB3D" mask="url(#mask-2)"></path>
+            </g>
+            <path d="M21,8 L15,8 C14.448,8 14,8.448 14,9 L14,11 C14,11.552 14.448,12 15,12 L21,12 C21.553,12 22,11.552 22,11 L22,9 C22,8.448 21.553,8 21,8" id="Fill-4" fill="#FABB3D"></path>
+            <rect id="Rectangle-44" x="0" y="0" width="32" height="32"></rect>
+        </g>
+    </g>
+</svg>
