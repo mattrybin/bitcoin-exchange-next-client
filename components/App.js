@@ -1,8 +1,10 @@
+import Footer from './footer'
+
 export default ({ children }) => (
   <main>
     {children}
+    <Footer />
     <style jsx global>{`
-
       @font-face {
         font-family: 'proxima-nova-soft';
         src: url('./static/font/proxima-nova-soft-bold.ttf') format('truetype');

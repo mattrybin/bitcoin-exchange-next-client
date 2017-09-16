@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "next"
+    "dev": "next",
+    "build": "next build"
   },
   "keywords": [],
   "author": "Matt Rybin <contact@mattrybin.com> (http://mattrybin.com/)",

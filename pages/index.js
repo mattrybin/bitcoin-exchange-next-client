@@ -5,10 +5,19 @@ import { c, s, l, m } from '../lib/theme'
 import App from '../components/App'
 import Head from '../components/head'
 import Header from '../components/Header'
+import Footer from '../components/footer'
+import AmountSelector from '../components/amount-selector'
 import TransactionList from '../components/TransactionList'
 import redirect from '../lib/redirect'
 import checkLoggedIn from '../lib/check-logged-in'
 import withData from '../lib/with-data'
+
+const newsItems = [
+  {title: 'The Top 7 Ways to Buy Bitcoin in Cambodia', link: 'top-7-ways-to-buy-bitcoin'},
+  {title: 'Andreas M. Antonopoulos Discusses Bitcoin in Phnom Penh', link: 'andreas-discusses-bitcoin'},
+  {title: 'A Brief History of Bitcoin in Cambodia', link: 'brief-history'},
+  {title: 'Why is Bitcoin forking?', link: 'why-is-bitcoin-forking'},
+]
 
 class Index extends React.Component {
   render () {
@@ -59,9 +68,11 @@ const IntroModule = () => (
       </div>
     </div>
     <div className="intro-right">
-      <div className="box"></div>
+      <AmountSelector />
+      <div className="intro-selector"></div>
     </div>
     <style jsx>{`
+      .intro-right,
       .intro-easy img,
       .intro-security img {
         display: none;
@@ -155,7 +166,6 @@ const IntroModule = () => (
           display: none;
         }
 
-
         .intro-easy img,
         .intro-security img {
           display: inline-block;
@@ -165,9 +175,6 @@ const IntroModule = () => (
           font-size: 0;
           margin-top: ${s.m14};
           margin-bottom: ${s.m15};
-        }
-
-        .intro-country {
         }
 
         .intro-country span {
@@ -216,6 +223,26 @@ const IntroModule = () => (
           width: 76px;
           margin-right: ${s.m9};
           float: left;
+        }
+      }
+      @media all and (min-width: ${s.m26}) {
+        .intro-cta {
+          display: none;
+        }
+        .intro {
+          text-align: center;
+        }
+        .intro-right,
+        .intro-left {
+          width: auto;
+          max-width: ${s.m24};
+        }
+
+        .intro-right {
+          display: inline-block;
+          text-align: center;
+          font-size: 0;
+          vertical-align: top;
         }
       }
     `}</style>
@@ -284,17 +311,18 @@ const StartModule = () => (
     <style jsx>{`
       .start {
         background: ${c.darkSecond};
-        padding: ${s.m14} 0 ${s.m14};
+        padding: ${s.m14} ${s.m10} ${s.m14};
         border-top: 2px solid ${c.darkBorder};
         border-bottom: 2px solid ${c.darkBorder};
       }
 
       .start-header {
-        margin: 0 ${s.m9} ${s.m12};
+        margin: 0 auto ${s.m12};
         background: ${c.darkFirst};
         border-radius: 4px;
         border: 1px solid ${c.darkBorder};
         text-align: center;
+        max-width: ${s.m22};
       }
 
       .start-header span {
@@ -307,7 +335,7 @@ const StartModule = () => (
       }
 
       .start-box {
-        margin: 0 ${s.m9} ${s.m13};
+        margin: 0 auto ${s.m13};
         border-radius: 4px;
         border: ${c.darkBorder};
         max-width: ${s.m22};
@@ -451,37 +479,100 @@ const StartModule = () => (
           font-weight: 500;
         }
       }
+      @media all and (min-width: ${s.m26}) {
+        .start-header {
+          margin: 0 auto ${s.m14};
+          background: ${c.actionFirst};
+          border: 1px solid ${c.darkBorder};
+          max-width: ${s.m24};
+        }
+
+        .start-header span {
+          font-size: ${s.m11};
+        }
+      }
     `}</style>
   </div>
 )
 
 const InfoModule = () => (
-  <div className="meetup">
-    <div className="meetup-icon">
-      <img src="/static/store-icon.svg" alt="Icon Store"/>
+  <div className="info">
+    <div className="info-meetup">
+      <div className="info-meetup-icon">
+        <img src="/static/store-icon.svg" alt="Icon Store"/>
+      </div>
+      <div className="info-meetup-header">
+        <span>Weekly Meetup</span>
+      </div>
+      <div className="info-meetup-title">
+        <span>Phnom Penh</span>
+      </div>
+      <div className="info-meetup-text">
+        <p>We have a Bitcoin meetup every monday in Brown 57 for all Bitcoin lovers in Cambodia.</p>
+      </div>
+      <div className="info-meetup-button">
+        <a href="#">Sign Up on Meetup.com</a>
+      </div>
     </div>
-    <div className="meetup-header">
-      <span>Weekly Meetup</span>
-    </div>
-    <div className="meetup-title">
-      <span>Phnom Penh</span>
-    </div>
-    <div className="meetup-text">
-      <p>We have a Bitcoin meetup every monday in Brown 57 for all Bitcoin lovers in Cambodia.</p>
-    </div>
-    <div className="meetup-button">
-      <a href="#">Sign Up on Meetup.com</a>
+    <div className="info-news">
+      <div className="info-news-title">
+        <span>Cambodia News</span>
+      </div>
+      <ul className="info-news-list">
+        {newsItems.map((item, index) =>
+            <li className="info-news-item" key={index}>{item.title}</li>
+          )}
+      </ul>
     </div>
     <style jsx>{`
-      .meetup {
-        padding: ${s.m14} 0 0;
+      .info {
+        padding: ${s.m14} ${s.m10} 0;
+        font-size: 0;
       }
 
-      .meetup-header {
+      .info-news,
+      .info-meetup {
+        font-size: ${s.m10};
+      }
+
+      .info-news-list {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+        border: 1px solid #dbdbdb;
+        border-radius: 4px;
+        max-width: ${s.m23};
+        margin: ${s.m10} auto 0;
+      }
+
+      .info-news-item {
+        border-bottom: 1px solid #dbdbdb;
+        padding: ${s.m10};
+        color: ${c.baseBlack};
+        line-height: ${s.m12};
+      }
+      .info-news-item:last-child {
+        border-bottom: 0;
+      }
+
+      .info-meetup {
+        margin-bottom: ${s.m14};
+      }
+
+      .info-news {
         text-align: center;
       }
 
-      .meetup-header span {
+      .info-news-title {
+        font-size: ${s.m11};
+        font-weight: 600;
+      }
+
+      .info-meetup-header {
+        text-align: center;
+      }
+
+      .info-meetup-header span {
         color: ${c.lightFirst};
         letter-spacing: ${l.spacingLarge};
         font-weight: 600;
@@ -489,38 +580,38 @@ const InfoModule = () => (
         display: inline-block;
       }
 
-      .meetup-icon {
+      .info-meetup-icon {
         text-align: center;
         margin-bottom: ${s.m9};
       }
 
-      .meetup-title {
+      .info-meetup-title {
         text-align: center;
       }
 
-      .meetup-title span {
+      .info-meetup-title span {
         display: inline-block;
         font-weight: 500;
         font-size: ${s.m11};
       }
 
-      .meetup-text {
+      .info-meetup-text {
         text-align: center;
         margin: 0 auto;
         width: ${s.m21};
         margin-top: ${s.m4};
       }
 
-      .meetup-text p {
+      .info-meetup-text p {
         font-weight: 500;
         margin: 0;
       }
 
-      .meetup-button {
+      .info-meetup-button {
         text-align: center;
         margin-top: ${s.m10};
       }
-      .meetup-button a {
+      .info-meetup-button a {
         padding: ${s.m10} ${s.m11};
         background: ${c.darkSecond};
         display: inline-block;
@@ -530,6 +621,36 @@ const InfoModule = () => (
         font-weight: 600;
         border-radius: 4px;
         border: 1px solid ${c.darkBorder};
+      }
+      @media all and (min-width: ${s.m25}) {
+        .info {
+          text-align: center;
+        }
+        .info-news,
+        .info-meetup {
+          display: inline-block;
+          vertical-align: top;
+        }
+
+        .info-meetup {
+          margin-top: ${s.m12};
+        }
+        .info-news {
+          max-width: ${s.m22};
+          margin-left: ${s.m14};
+        }
+        .info-news-title {
+          text-align: left;
+        }
+      }
+      @media all and (min-width: ${s.m26}) {
+        .info-news {
+          max-width: ${s.m23};
+          margin-left: ${s.m14};
+        }
+        .info-meetup {
+          margin-top: ${s.m10};
+        }
       }
     `}</style>
   </div>
