@@ -13,9 +13,11 @@ export default () => (
       </a>
     </Link>
     <div className="buttons">
-      <div className="buy-bitcoin">
-        <span className="buy-text">Buy Bitcoin</span>
-      </div>
+      <Link href="/buy-bitcoin">
+        <a id="buy-bitcoin" className="buy-bitcoin">
+          <span className="buy-text">Buy Bitcoin</span>
+        </a>
+      </Link>
       <div className="sell-bitcoin">
         <span className="sell-txt">Sell Bitcoin</span>
       </div>

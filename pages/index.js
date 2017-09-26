@@ -19,12 +19,16 @@ const newsItems = [
   {title: 'Why is Bitcoin forking?', link: 'why-is-bitcoin-forking'},
 ]
 
+const pageData = {
+  footer: true,
+  header: true,
+  title: 'Index'
+}
+
 class Index extends React.Component {
   render () {
     return (
-      <App>
-        <Head title="Index" />
-        <Header />
+      <App pageData={pageData}>
         <div className="container">
           <IntroModule />
           <StartModule />
