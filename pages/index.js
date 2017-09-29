@@ -229,7 +229,7 @@ const IntroModule = () => (
           float: left;
         }
       }
-      @media all and (min-width: ${s.m26}) {
+      @media all and (min-width: ${s.m28}) {
         .intro-cta {
           display: none;
         }

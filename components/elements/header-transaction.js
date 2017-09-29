@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { c, s, l, m } from '../../lib/theme'
 import HeaderTransactionProgress from './header-transaction-progress'
 
+import LiveBitcoinPrice from './live-bitcoin-price'
+
 class HeaderTransaction extends React.Component {
   constructor(props) {
     super(props)
@@ -19,7 +21,8 @@ class HeaderTransaction extends React.Component {
         <div className="container">
           <div className="header-top">
             <div className="price">
-              <span className="price-title">Cryptoasia</span>
+              <span className="price-title">CryptoAsia - </span>
+              <LiveBitcoinPrice />
             </div>
             <Link href="/">
               <div className="menu">

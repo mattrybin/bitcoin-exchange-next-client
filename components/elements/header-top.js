@@ -1,6 +1,8 @@
 import { c, s, l, m } from '../../lib/theme'
 import Link from 'next/link'
 
+import LiveBitcoinPrice from './live-bitcoin-price'
+
 const MobileMenu = ({menuItems, openMobileMenu }) => (
   <div className="container">
     {menuItems.map(( item, index ) => {
@@ -62,7 +64,8 @@ export default ({menuItems, isOpen, openMobileMenu}) => (
   <div className="header-top-wrapper">
     <div className="header-top">
       <div className="price">
-        <span className="price-title">Bitcoin Price: $2445</span>
+        <span className="price-title">Bitcoin Price: </span>
+        <LiveBitcoinPrice />
       </div>
       <div className="mobile-menu" onClick={openMobileMenu}>
         <span className="menu-title">{isOpen ? "CLOSE" : "MENU"}</span>

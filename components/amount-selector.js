@@ -53,7 +53,7 @@ class AmountSelector extends React.Component {
             display: none;
           }
 
-          @media all and (min-width: ${s.m26}) {
+          @media all and (min-width: ${s.m28}) {
             .root {
               display: block;
             }

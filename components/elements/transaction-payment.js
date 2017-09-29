@@ -43,7 +43,7 @@ class TransactionPayment extends React.Component {
         </header>
         <div className="container">
           <div className="wing-account">
-            To continue we need you to send {data.amount} dollar to our Wing account.
+            To continue, we need you to send {data.amount} dollars to our Wing account.
           </div>
           <div className="confirmation-box">
             <div className="confirmation-field">
@@ -64,7 +64,7 @@ class TransactionPayment extends React.Component {
             </div>
           </div>
           <div className="wing-account">
-            The Bitcoin price is determent based time when we resive your payment. The moment we resive your payment we will lock the bitcoin price.
+            The Bitcoin price is determined at the time when we receive your payment
           </div>
           <div className="confirmation-box">
             <div className="confirmation-field">

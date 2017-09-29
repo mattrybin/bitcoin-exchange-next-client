@@ -35,7 +35,7 @@ class TransactionLogin extends React.Component {
     return (
       <div className="root">
         <header>
-          <TransactionHeaderBox title="Login In" subTitle="Login to your account" />
+          <TransactionHeaderBox title="Log In" subTitle="Log In to your account" />
         </header>
         <div className="container">
           <form>

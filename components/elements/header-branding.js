@@ -93,6 +93,7 @@ export default () => (
         }
         .buy-bitcoin {
           margin-right: ${s.m12};
+          text-decoration: none;
         }
         .buy-bitcoin:hover,
         .sell-bitcoin:hover {

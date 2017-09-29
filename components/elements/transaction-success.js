@@ -30,7 +30,7 @@ class TransactionSuccess extends React.Component {
           <div className="confirmation-box">
             <div className="confirmation-field">
               <div className="confirmation-field-title">
-                <span>Dollar we received:</span>
+                <span>Dollars we received:</span>
               </div>
               <div className="confirmation-field-data">
                 <span>${data.amount}</span>
