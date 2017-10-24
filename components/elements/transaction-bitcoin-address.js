@@ -1,6 +1,7 @@
 import { c, s, l, m } from '../../lib/theme'
 import Link from 'next/link'
 import { object,func } from 'prop-types'
+import Form from 'react-validify'
 
 import Input from './input'
 import Submit from './submit'
@@ -26,7 +27,6 @@ class TransactionBitcoinAddress extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
     this.props.onSubmit();
   }
 
@@ -38,10 +38,16 @@ class TransactionBitcoinAddress extends React.Component {
           <TransactionHeaderBox title="Add Bitcoin Address" subTitle="The address we will send your money to" />
         </header>
         <div className="container">
-          <form>
-            <Input label="Your bitcoin address" type="text" name="bitcoin-address" onChange={this.fieldChange} />
-            <Submit value="Add Bitcoin Address" onClick={this.handleSubmit} />
-          </form>
+          <Form
+            rules={{
+              bitcoinAddress: "regex:/^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$/"
+            }}
+            errorMessages={{
+            'regex.bitcoinAddress': 'You need to input a valid bitcoin address',
+            }}>
+            <Input label="Your bitcoin address" type="text" name="bitcoinAddress" onChange={this.fieldChange} />
+            <Submit submit value="Add Bitcoin Address" onClick={this.handleSubmit} />
+          </Form>
         </div>
       <style jsx>{`
         .container {

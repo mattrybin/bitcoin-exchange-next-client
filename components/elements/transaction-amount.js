@@ -1,6 +1,7 @@
 import { c, s, l, m } from '../../lib/theme'
-import Link from 'next/link'
 import { object,func } from 'prop-types'
+import Form from 'react-validify'
+import Link from 'next/link'
 
 import Input from './input'
 import Submit from './submit'
@@ -28,7 +29,6 @@ class TransactionAmount extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
     this.props.onSubmit();
   }
 
@@ -45,11 +45,23 @@ class TransactionAmount extends React.Component {
           <TransactionHeaderBox title="Input Amount" subTitle="Amount of dollars you want to spend" />
         </header>
         <div className="container">
-          <form>
-            <Input label="Your dollar amount" type="number" name="amount" onChange={this.fieldChange} />
+          <Form
+            rules={{
+              amount: 'max:500|min:50|numeric|required'
+            }}
+            errorMessages={{
+            'min.amount': 'The minimum buying amount is $50',
+            'max.amount': 'The maximum buying amount is $500'
+            }}>
+            <Input
+              label="Your dollar amount"
+              type="number"
+              name="amount"
+              onChange={this.fieldChange}
+            />
             <DollarToBitcoin bitcoinPrice={bitcoinPrice} dollarAmount={data.amount}/>
-            <Submit value="Buy Bitcoin" onClick={this.handleSubmit} />
-          </form>
+            <Submit submit value="Buy Bitcoin" onClick={this.handleSubmit} />
+          </Form>
         </div>
       <style jsx>{`
         .container {

@@ -1,29 +1,28 @@
 import { c, s, l, m } from '../../lib/theme'
-import { func,string } from 'prop-types'
 
-class Input extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  static propTypes = {
-    onChange: func.isRequired,
-    type: string.isRequired,
-    name: string.isRequired,
-    label: string.isRequired
-  }
-
-  render() {
-    return (
-      <div className="input-container">
-        <label className="input-wrapper">
-          <span>{this.props.label}:</span>
-          <input type={this.props.type} name={this.props.name} onChange={this.props.onChange} />
-        </label>
+const Input = ({ error, ...props }) => {
+  return (
+    <div className='form-group'>
+      <label className={`input-wrapper ${error ? 'error-form' : null}`}>
+        <span>{props.label}</span>
+        <input {...props} />
+      </label>
+      { error ? <small className='error'>{error}</small> : null }
       <style jsx>{`
-        .input-container {
+        .form-group {
           padding: ${s.m10} 0 0;
         }
+        .input-wrapper.error-form input {
+          border: 1px solid red;
+        }
+        .error {
+          display: inline-block;
+          width: 100%;
+          margin-top: ${s.m8};
+          font-size: ${s.m9};
+          color: red;
+        }
+
         .input-wrapper span,
         .input-wrapper input {
           display: inline-block;
@@ -44,9 +43,8 @@ class Input extends React.Component {
           border: 1px solid ${c.actionFirst};
         }
       `}</style>
-      </div>
-    )
-  }
-}
+    </div>
+  );
+};
 
 export default Input
