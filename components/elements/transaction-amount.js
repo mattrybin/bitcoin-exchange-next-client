@@ -23,17 +23,19 @@ class TransactionAmount extends React.Component {
   }
 
   fieldChange(event) {
-    let target = event.target;
-    let value = target.type === 'checkbox' ? target.checked : target.value;
-    this.props.onChange(value);
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+	const name = target.name;
+
+    this.props.onChange(name, value)
   }
 
   handleSubmit(event) {
-    this.props.onSubmit();
+    this.props.onSubmit()
   }
 
   dollarToBitcoin(bitcoinValue, dollarAmount) {
-    return  (dollarAmount / bitcoinValue).toFixed(4)
+    return (dollarAmount / bitcoinValue).toFixed(4)
   }
 
   render() {
@@ -57,8 +59,7 @@ class TransactionAmount extends React.Component {
               label="Your dollar amount"
               type="number"
               name="amount"
-              onChange={this.fieldChange}
-            />
+			        onInput={this.fieldChange} />
             <DollarToBitcoin bitcoinPrice={bitcoinPrice} dollarAmount={data.amount}/>
             <Submit submit value="Buy Bitcoin" onClick={this.handleSubmit} />
           </Form>

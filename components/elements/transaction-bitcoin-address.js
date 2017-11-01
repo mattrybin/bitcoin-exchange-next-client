@@ -22,8 +22,11 @@ class TransactionBitcoinAddress extends React.Component {
   }
 
   fieldChange(event) {
-    let target = event.target;
-    let value = target.type === 'checkbox' ? target.checked : target.value;
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+	const name = target.name;
+
+    this.props.onChange(name, value)
   }
 
   handleSubmit(event) {
@@ -45,7 +48,7 @@ class TransactionBitcoinAddress extends React.Component {
             errorMessages={{
             'regex.bitcoinAddress': 'You need to input a valid bitcoin address',
             }}>
-            <Input label="Your bitcoin address" type="text" name="bitcoinAddress" onChange={this.fieldChange} />
+            <Input label="Your bitcoin address" type="text" name="bitcoinAddress" onInput={this.fieldChange} />
             <Submit submit value="Add Bitcoin Address" onClick={this.handleSubmit} />
           </Form>
         </div>

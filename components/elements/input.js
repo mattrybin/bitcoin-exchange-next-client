@@ -7,7 +7,9 @@ const Input = ({ error, ...props }) => {
         <span>{props.label}</span>
         <input {...props} />
       </label>
+
       { error ? <small className='error'>{error}</small> : null }
+
       <style jsx>{`
         .form-group {
           padding: ${s.m10} 0 0;

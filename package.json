@@ -18,6 +18,7 @@
     "graphql": "^0.9.3",
     "graphql-tag": "^2.4.2",
     "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.4",
     "next": "latest",
     "nightwatch": "^0.9.16",
     "prop-types": "^15.5.10",

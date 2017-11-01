@@ -15,7 +15,8 @@ import TransactionSuccess from './elements/transaction-success'
 class Transaction extends React.Component {
   CONTACT_FORM_DEFAULTS = {
     amount: 0,
-    user: '',
+    userId: '',
+    email: '',
     phoneNumber: '',
     bitcoinAddress: ''
   }
@@ -48,12 +49,12 @@ class Transaction extends React.Component {
   }
 
 
-  paymentChanged(value) {
-    this.setState({
-      payment: {
-        amount: value
+  paymentChanged(name, value) {
+    this.setState(({payment}) => ({ payment: {
+		...payment,
+		[name]: value
       }
-    })
+  	}))
   }
 
   stepIncrement(event) {

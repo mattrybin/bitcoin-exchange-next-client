@@ -1,6 +1,7 @@
 import { c, s, l, m } from '../../lib/theme'
 import Link from 'next/link'
 import { object,func } from 'prop-types'
+import Form from 'react-validify'
 
 import Input from './input'
 import Submit from './submit'
@@ -21,12 +22,14 @@ class TransactionPhone extends React.Component {
   }
 
   fieldChange(event) {
-    let target = event.target;
-    let value = target.type === 'checkbox' ? target.checked : target.value;
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+	const name = target.name;
+
+    this.props.onChange(name, value)
   }
 
   handleSubmit(event) {
-    event.preventDefault();
     this.props.onSubmit();
   }
 
@@ -38,10 +41,13 @@ class TransactionPhone extends React.Component {
           <TransactionHeaderBox title="Add Phone Number" subTitle="We need to send WING payment" />
         </header>
         <div className="container">
-          <form>
-            <Input label="Your phone number" type="tel" name="phone-number" onChange={this.fieldChange} />
-            <Submit value="Add Phone Number" onClick={this.handleSubmit} />
-          </form>
+          <Form
+            rules={{
+              phoneNumber: 'numeric|required'
+            }}>
+            <Input label="Your phone number" type="number" name="phoneNumber" onInput={this.fieldChange} />
+            <Submit submit value="Add Phone Number" onClick={this.handleSubmit} />
+		      </Form>
         </div>
       <style jsx>{`
         .container {

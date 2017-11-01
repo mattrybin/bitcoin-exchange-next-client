@@ -45,7 +45,7 @@ class TransactionLogin extends React.Component {
   }
 
   handleSubmit(event) {
-    this.props.signin(event, this.formStateChanger, this.props.onSubmit)
+    this.props.signin(event, this.props.onChange, this.formStateChanger, this.props.onSubmit)
   }
 
   render() {
@@ -106,6 +106,10 @@ export default compose(
       mutation Signin($email: String!, $password: String!) {
         signinUser(email: { email: $email, password: $password }) {
           token
+		  user {
+			  id
+        email
+		  }
         }
       }
     `,
@@ -119,14 +123,14 @@ export default compose(
         ownProps: { client }
       }) => ({
         // `signin` is the name of the prop passed to the component
-        signin: (form, stateFunc, onSubmit) => {
+        signin: (form, onChange, stateFunc, onSubmit) => {
           stateFunc('loading')
           signinWithEmail({
             variables: {
               email: form.email,
               password: form.password
             }
-          }).then(({ data: { signinUser: { token } } }) => {
+		}).then(({ data: { signinUser: { token, user: { id, email } } } }) => {
             // Store the token in cookie
             document.cookie = cookie.serialize('token', token, {
               maxAge: 30 * 24 * 60 * 60 // 30 days
@@ -136,6 +140,8 @@ export default compose(
             // logged in
             client.resetStore().then(() => {
               // Now redirect to the homepage
+    		      onChange('userId', id)
+    		      onChange('email', email)
               stateFunc(false)
               onSubmit()
             })
