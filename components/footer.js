@@ -25,7 +25,7 @@ class Footer extends React.Component {
               <ul className="list-container">
                 <li>Buy Bitcoin</li>
                 <li>Sell Bitcoin</li>
-                <li>Cryptoasia Trading</li>
+                <li>Firecoin Trading</li>
                 <li>Coin Cafe</li>
               </ul>
             </div>
@@ -34,8 +34,8 @@ class Footer extends React.Component {
                 <span>Support</span>
               </div>
               <ul className="list-container">
-                <li>About Cryptoasia</li>
-                <li>Cryptoasia FAQs</li>
+                <li>About Firecoin</li>
+                <li>Firecoin FAQs</li>
                 <li>Terms and Conditions</li>
                 <li>Support</li>
                 <li>Contact Us</li>
@@ -46,7 +46,7 @@ class Footer extends React.Component {
                 <img src="static/logo.svg" alt=""/>
               </div>
               <div className="logo-title">
-                <span>Cryptoasia</span>
+                <span>Firecoin</span>
               </div>
               <div className="logo-sub-title">
                 <span>Bitcoin Exchange</span>
@@ -57,7 +57,7 @@ class Footer extends React.Component {
 
 
           <div className="copy">
-            <span>© Copyright Cryptoasia Co. All Rights Reserved</span>
+            <span>© Copyright Firecoin Co. All Rights Reserved</span>
           </div>
         </div>
         <style jsx>{`

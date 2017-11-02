@@ -9,42 +9,17 @@ import redirect from '../lib/redirect'
 import checkLoggedIn from '../lib/check-logged-in'
 import withData from '../lib/with-data'
 
+const pageData = {
+  footer: true,
+  header: true,
+  title: 'Index'
+}
+
 class Transactions extends React.Component {
-  static async getInitialProps (context, apolloClient) {
-    const { loggedInUser } = await checkLoggedIn(context, apolloClient)
-
-    if (!loggedInUser.user) {
-      // If not signed in, send them somewhere more useful
-      redirect(context, '/signin')
-    }
-
-    return { loggedInUser }
-  }
-
-  signout = () => {
-    document.cookie = cookie.serialize('token', '', {
-      maxAge: -1 // Expire the cookie immediately
-    })
-
-    // Force a reload of all the current queries now that the user is
-    // logged in, so we don't accidentally leave any state around.
-    this.props.client.resetStore().then(() => {
-      // Redirect to a more useful page when signed out
-      redirect({}, '/signin')
-    })
-  }
-
   render () {
     return (
-      <App>
-        <Head>
-          <title>Transactions - Cryptoasia</title>
-          <meta charSet='utf-8' />
-          <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-        </Head>
-        <Header />
+      <App pageData={pageData}>
         <TransactionList />
-        <button onClick={this.signout}>Sign out</button>
       </App>
     )
   }

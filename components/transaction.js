@@ -18,7 +18,8 @@ class Transaction extends React.Component {
     userId: '',
     email: '',
     phoneNumber: '',
-    bitcoinAddress: ''
+    bitcoinAddress: '',
+    transactionId: ''
   }
 
   constructor(props) {

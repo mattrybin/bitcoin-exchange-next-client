@@ -6,8 +6,8 @@ export default () => (
     <Link href="/">
       <a className="brand">
         <img src="/static/logo.svg" alt="Logo" />
-        <span className="brand-title">Cryptoasia</span>
-        <span className="brand-title-full">Cryptoasia</span>
+        <span className="brand-title">Firecoin</span>
+        <span className="brand-title-full">Firecoin</span>
         <span className="brand-title-hr"></span>
         <span className="brand-subtitle">Bitcoin Exchange in Cambodia</span>
       </a>

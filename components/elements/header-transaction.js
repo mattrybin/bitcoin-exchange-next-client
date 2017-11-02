@@ -21,7 +21,7 @@ class HeaderTransaction extends React.Component {
         <div className="container">
           <div className="header-top">
             <div className="price">
-              <span className="price-title">CryptoAsia - </span>
+              <span className="price-title">Firecoin - </span>
               <LiveBitcoinPrice />
             </div>
             <Link href="/">

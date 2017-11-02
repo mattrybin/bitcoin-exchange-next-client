@@ -107,7 +107,7 @@ class TransactionInfo extends React.Component {
   }
 
   handleSubmit(event) {
-    this.props.create(this.props.data, this.formStateChanger, this.props.onSubmit)
+    this.props.create(this.props.data, this.formStateChanger, this.props.onChange, this.props.onSubmit)
   }
 
   dollarToBitcoin(bitcoinValue, dollarAmount) {
@@ -200,7 +200,7 @@ export default compose(
         ownProps: { client }
       }) => ({
         // `create` is the name of the prop passed to the component
-        create: (data, stateChanger, onSubmit) => {
+        create: (data, stateChanger, onChange, onSubmit) => {
           stateChanger('loading')
           createTransaction({
             variables: {
@@ -212,6 +212,7 @@ export default compose(
           }).then(({ data: { createTransaction: { id } } }) => {
 
             client.resetStore().then(() => {
+    		      onChange('transactionId', id);
               _.delay(stateChanger, 2000, 'success');
               redirect({}, `/buy-bitcoin?payment=${id}`);
               _.delay(onSubmit, 3000);

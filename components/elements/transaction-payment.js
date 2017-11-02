@@ -1,6 +1,11 @@
 import { c, s, l, m } from '../../lib/theme'
 import Link from 'next/link'
 import { object,func } from 'prop-types'
+import Form from 'react-validify'
+import gql from 'graphql-tag'
+import withData from '../../lib/with-data'
+import redirect from '../../lib/redirect'
+import { graphql, withApollo, compose } from 'react-apollo'
 
 import Input from './input'
 import Submit from './submit'
@@ -26,8 +31,10 @@ class TransactionPayment extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
-    this.props.onSubmit();
+    console.log('hhello')
+    this.props.update(this.props.data, this.props.onSubmit)
+    //event.preventDefault();
+    //this.props.onSubmit();
   }
 
   dollarToBitcoin(bitcoinValue, dollarAmount) {
@@ -76,9 +83,9 @@ class TransactionPayment extends React.Component {
               </div>
             </div>
           </div>
-          <form>
-            <Submit value="Confirm Wing Payment" onClick={this.handleSubmit} />
-          </form>
+          <Form>
+            <Submit submit value="Confirm Wing Payment" onClick={this.handleSubmit} />
+          </Form>
         </div>
       <style jsx>{`
         .container {
@@ -120,4 +127,39 @@ class TransactionPayment extends React.Component {
   }
 }
 
-export default TransactionPayment
+export default compose(
+  withData,
+  withApollo,
+  graphql(
+    gql`
+      mutation update($id: ID!, $currentTime: DateTime!) {
+        updateTransaction	(confirmationDate: $currentTime, id: $id ) {
+  	      id
+	      }
+      }
+    `,
+    {
+      name: 'updateTransaction',
+      props: ({
+        updateTransaction,
+        ownProps: { client }
+      }) => ({
+        update: (data, onSubmit) => {
+          updateTransaction({
+            variables: {
+              id: data.transactionId,
+              currentTime: new Date()
+            }
+          }).then(({ data: { updateTransaction: { id }}}) => {
+            client.resetStore().then(() => {
+              console.log(id)
+              onSubmit()
+            })
+          }).catch((error) => {
+            console.error(error)
+          })
+        }
+      })
+    }
+  )
+)(TransactionPayment)
