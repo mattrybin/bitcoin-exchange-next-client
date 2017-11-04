@@ -15,6 +15,7 @@ function TransactionList({ data: {loading, error, allTransactions} }) {
               <th>Phone Number</th>
               <th>Amount</th>
               <th>Confirmed?</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -24,6 +25,7 @@ function TransactionList({ data: {loading, error, allTransactions} }) {
                 <td data-th="Phone">{t.phoneNumber}</td>
                 <td data-th="Amount">${t.amountDollar}</td>
                 <td data-th="Confirmed?">{t.confirmationDate !== null ? "Yes" : "No"}</td>
+                <td data-th="Action"><a href="#">Process Payment</a></td>
               </tr>
             )}
           </tbody>
